@@ -1,4 +1,5 @@
 
+
 import { MenuItem, Quest, QuestType, StoreItem, UserState, Ladder, LadderStep, LeaderboardUser } from './types';
 
 // --- GENERATORS ---
@@ -216,19 +217,21 @@ const generateMenu = (): MenuItem[] => {
 const generateStore = (): StoreItem[] => {
   const items: StoreItem[] = [];
   const brands = ['Nike', 'Adidas', 'Puma', 'Under Armour', 'Boat', 'Sony', 'Razer', 'Logitech', 'MuscleBlaze', 'MyProtein'];
+  
+  // Products with specific placeholder images
   const products = [
-    { name: 'Running Shoes', type: 'PHYSICAL', basePrice: 3000 },
-    { name: 'Gym T-Shirt', type: 'PHYSICAL', basePrice: 800 },
-    { name: 'Smart Watch', type: 'PHYSICAL', basePrice: 2500 },
-    { name: 'Wireless Buds', type: 'PHYSICAL', basePrice: 1500 },
-    { name: 'Gaming Mouse', type: 'PHYSICAL', basePrice: 2000 },
-    { name: 'Whey Protein (1kg)', type: 'PHYSICAL', basePrice: 2800 },
-    { name: 'Yoga Mat', type: 'PHYSICAL', basePrice: 1200 },
-    { name: 'Gift Card (₹500)', type: 'DIGITAL', basePrice: 2500 },
-    { name: 'Spotify Premium', type: 'DIGITAL', basePrice: 800 },
-    { name: 'Netflix Mobile', type: 'DIGITAL', basePrice: 900 },
-    { name: 'Pro Badge', type: 'DIGITAL', basePrice: 5000 },
-    { name: 'XP Booster 2x', type: 'DIGITAL', basePrice: 400 },
+    { name: 'Running Shoes', type: 'PHYSICAL', basePrice: 3000, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80' },
+    { name: 'Gym T-Shirt', type: 'PHYSICAL', basePrice: 800, image: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=400&q=80' },
+    { name: 'Smart Watch', type: 'PHYSICAL', basePrice: 2500, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80' },
+    { name: 'Wireless Buds', type: 'PHYSICAL', basePrice: 1500, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80' },
+    { name: 'Gaming Mouse', type: 'PHYSICAL', basePrice: 2000, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80' },
+    { name: 'Whey Protein (1kg)', type: 'PHYSICAL', basePrice: 2800, image: 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=400&q=80' },
+    { name: 'Yoga Mat', type: 'PHYSICAL', basePrice: 1200, image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400&q=80' },
+    { name: 'Gift Card (₹500)', type: 'DIGITAL', basePrice: 2500, image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?w=400&q=80' },
+    { name: 'Spotify Premium', type: 'DIGITAL', basePrice: 800, image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400&q=80' },
+    { name: 'Netflix Mobile', type: 'DIGITAL', basePrice: 900, image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&q=80' },
+    { name: 'Pro Badge', type: 'DIGITAL', basePrice: 5000, image: 'https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=400&q=80' }, // Medal/Trophy image
+    { name: 'XP Booster 2x', type: 'DIGITAL', basePrice: 400, image: 'https://images.unsplash.com/photo-1627850604058-52e40de1b847?w=400&q=80' }, // Lightning/Energy
   ];
 
   let idCounter = 1;
@@ -244,9 +247,7 @@ const generateStore = (): StoreItem[] => {
       id: `store_${idCounter++}`,
       name: `${brand} ${prod.name} ${variant}`,
       cost: price,
-      image: prod.type === 'DIGITAL' 
-        ? 'https://cdn-icons-png.flaticon.com/512/2622/2622083.png' 
-        : 'https://m.media-amazon.com/images/I/61+t-M87uTL._AC_SL1500_.jpg',
+      image: prod.image,
       type: prod.type as 'DIGITAL' | 'PHYSICAL',
       description: `Official ${brand} merchandise. High quality ${prod.name.toLowerCase()}.`
     });
@@ -256,7 +257,7 @@ const generateStore = (): StoreItem[] => {
     id: 'store_special_1',
     name: 'PlayStation 5 Slim',
     cost: 50000,
-    image: 'https://gmedia.playstation.com/is/image/SIEPDC/ps5-slim-icon-01-en-26oct23?$1600px$',
+    image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&q=80',
     type: 'PHYSICAL',
     description: 'The ultimate gaming console. Ultra-rare stock.'
   });
